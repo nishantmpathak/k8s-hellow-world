@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-spring-boot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: demo-spring-boot-app
+    spec:
+      containers:
+      - name: demo-spring-boot-app
+        image: nishantmpathak/demo-spring-boot-app:latest
+        ports:
+        - containerPort: 8080
