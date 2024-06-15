@@ -17,3 +17,9 @@ spec:
         image: nishantmpathak/demo-spring-boot-app:latest
         ports:
         - containerPort: 8080
+        env:
+        - name: MY_CUSTOM_PROPERTY
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: my.custom.property

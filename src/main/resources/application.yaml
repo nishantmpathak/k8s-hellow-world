@@ -1,0 +1,3 @@
+my:
+  custom:
+    property: ${MY_CUSTOM_PROPERTY:defaultPropertyValue}
