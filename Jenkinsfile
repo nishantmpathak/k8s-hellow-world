@@ -5,6 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'spring-boot-docker-k8s'
         DOCKER_TAG = 'latest'
         REGISTRY = 'docker.io'
+        DOCKER_REGISTRY_URL = credentials('DOCKER_REGISTRY_URL')
         DOCKER_REGISTRY_USERNAME = credentials('DOCKER_REGISTRY_USERNAME')  // Jenkins secret text credential ID
         DOCKER_REGISTRY_PASSWORD = credentials('DOCKER_REGISTRY_PASSWORD')  // Jenkins secret text credential ID
     }
