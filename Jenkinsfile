@@ -20,11 +20,11 @@ pipeline {
             steps {
                 script {
                     // Login to Docker registry using credentials passed as environment variables
-                    sh "docker login -u ${DOCKER_REGISTRY_USERNAME} -p ${DOCKER_REGISTRY_PASSWORD} ${DOCKER_REGISTRY_URL}"
+                    sh "docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD $DOCKER_REGISTRY_URL"
 
                     // Build and push Docker image
-                    sh "docker build -t ${DOCKER_REGISTRY_URL}/demo-spring-boot-app:latest ."
-                    sh "docker push ${DOCKER_REGISTRY_URL}/demo-spring-boot-app:latest"
+                    sh "docker build -t $DOCKER_REGISTRY_URL/demo-spring-boot-app:latest ."
+                    sh "docker push $DOCKER_REGISTRY_URL/demo-spring-boot-app:latest"
                 }
             }
         }
