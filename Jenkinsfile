@@ -17,13 +17,13 @@ pipeline {
                 sh './mvnw clean package'
             }
         }
-        stage('Docker Version') {
-            steps {
-                script {
-                    sh 'echo $MY_PASS | sudo -S docker --version'
-                }
-            }
-        }
+//         stage('Docker Version') {
+//             steps {
+//                 script {
+//                     sh 'echo $MY_PASS | sudo -S docker --version'
+//                 }
+//             }
+//         }
         stage('Docker Build & Push') {
             steps {
                 script {
