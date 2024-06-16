@@ -20,7 +20,7 @@ pipeline {
         stage('Docker Version') {
             steps {
                 script {
-                    sh 'echo $MY_PASS | sudo -S docker --version'
+                    sh 'sudo -S docker --version'
                 }
             }
         }
