@@ -43,6 +43,8 @@ pipeline {
                 cd K8S
                 pwd
                 ls
+                echo $MY_PASS | sudo -S /opt/homebrew/bin/kubectl apply -f service.yaml
+                echo $MY_PASS | sudo -S /opt/homebrew/bin/kubectl apply -f config-map.yaml
                 echo $MY_PASS | sudo -S /opt/homebrew/bin/kubectl apply -f deployment.yaml
                 '''
             }
