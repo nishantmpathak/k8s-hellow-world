@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Ensure Docker is accessible
-                    sh 'docker --version'
+                    sh 'sudo -S docker --version'
 
                     // Login to Docker registry using credentials passed as environment variables
                     sh "sudo docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD $DOCKER_REGISTRY_URL"
