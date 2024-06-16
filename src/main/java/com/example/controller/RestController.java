@@ -14,7 +14,7 @@ public class RestController {
     private String value;
     @GetMapping
     public ResponseEntity<String> getMessage(){
-        return ResponseEntity.status(HttpStatus.OK).body("Hello World "+value);
+        return ResponseEntity.status(HttpStatus.OK).body("Hi, Hello World "+value);
     }
 
 }
