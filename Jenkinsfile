@@ -32,8 +32,8 @@ pipeline {
                     sh "echo $MY_PASS | sudo -S /usr/local/bin/docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD "
 
                     // Build and push Docker image
-                    sh "echo $MY_PASS | sudo -S /usr/local/bin/docker build -t $DOCKER_REGISTRY_URL/demo-spring-boot-app:latest ."
-                    sh "echo $MY_PASS | sudo -S /usr/local/bin/docker push $DOCKER_REGISTRY_URL/demo-spring-boot-app:latest"
+                    sh "echo $MY_PASS | sudo -S /usr/local/bin/docker build -t $DOCKER_REGISTRY_USERNAME/demo-spring-boot-app:latest ."
+                    sh "echo $MY_PASS | sudo -S /usr/local/bin/docker push $DOCKER_REGISTRY_USERNAME/demo-spring-boot-app:latest"
                 }
             }
         }
