@@ -8,6 +8,7 @@ pipeline {
         DOCKER_REGISTRY_URL = credentials('DOCKER_REGISTRY_URL')
         DOCKER_REGISTRY_USERNAME = credentials('DOCKER_REGISTRY_USERNAME')  // Jenkins secret text credential ID
         DOCKER_REGISTRY_PASSWORD = credentials('DOCKER_REGISTRY_PASSWORD')  // Jenkins secret text credential ID
+        MY_PASS = credential('MY_PASS')
     }
 
     stages {
@@ -20,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Ensure Docker is accessible
-                    sh 'sudo -S docker --version'
+                    sh 'echo MY_PASS | sudo -S docker --version'
 
                     // Login to Docker registry using credentials passed as environment variables
                     sh "sudo docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD $DOCKER_REGISTRY_URL"
