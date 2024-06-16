@@ -17,11 +17,16 @@ pipeline {
                 sh './mvnw clean package'
             }
         }
+        stage('Docker Version') {
+            steps {
+                script {
+                    sh 'echo $MY_PASS | sudo -S docker --version'
+                }
+            }
+        }
         stage('Docker Build & Push') {
             steps {
                 script {
-                    // Ensure Docker is accessible
-                    sh "echo $MY_PASS | sudo -S docker --version"
 
                     // Login to Docker registry using credentials passed as environment variables
                     sh "sudo docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD $DOCKER_REGISTRY_URL"
