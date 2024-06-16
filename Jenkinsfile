@@ -8,7 +8,7 @@ pipeline {
         DOCKER_REGISTRY_URL = credentials('DOCKER_REGISTRY_URL')
         DOCKER_REGISTRY_USERNAME = credentials('DOCKER_REGISTRY_USERNAME')  // Jenkins secret text credential ID
         DOCKER_REGISTRY_PASSWORD = credentials('DOCKER_REGISTRY_PASSWORD')  // Jenkins secret text credential ID
-//         MY_PASS = credential('MY_PASS')
+        MY_PASS = credentials('MY_PASS')
     }
 
     stages {
@@ -17,13 +17,13 @@ pipeline {
                 sh './mvnw clean package'
             }
         }
-//         stage('Docker Version') {
-//             steps {
-//                 script {
-//                     sh 'echo $MY_PASS | sudo -S docker --version'
-//                 }
-//             }
-//         }
+        stage('Docker Version') {
+            steps {
+                script {
+                    sh 'echo $MY_PASS | sudo -S docker --version'
+                }
+            }
+        }
         stage('Docker Build & Push') {
             steps {
                 script {
