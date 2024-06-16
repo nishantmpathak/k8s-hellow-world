@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    echo $MY_PASS | sudo -S /usr/local/bin/docker --version
+                    sudo /usr/local/bin/docker --version
                     '''
                 }
             }
