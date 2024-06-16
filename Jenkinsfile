@@ -40,6 +40,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh "cd K8S"
+                sh "ls"
                 sh "echo $MY_PASS | sudo -S /opt/homebrew/bin/kubectl apply -f deployment.yaml"
             }
         }
